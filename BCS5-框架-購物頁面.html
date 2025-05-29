@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+
+
+    <!-- 引進CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+
+        @media (max-width: 992px) {
+            .navbar-collapse {
+                text-align: center;
+            }
+
+            .navbar-nav {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .nav-item.icons {
+                justify-content: center !important;
+            }
+        }
+
+
+        .custom-underline {
+            width: 60px;
+            height: 4px;
+            background-color: #0d6efd;
+            /* Bootstrap 主藍色 */
+            border-radius: 999px;
+            margin-top: 10px;
+        }
+
+        .color-btn {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border 0.2s ease-in-out;
+        }
+
+        .color-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* 預設：手機置中 */
+        .my-float-box {
+            transform: translate(-50%, -50%);
+        }
+
+        /* 桌機以上：靠右中間 */
+        @media (min-width: 992px) {
+            .my-float-box {
+                left: auto;
+                right: 3rem;
+                transform: translateY(-50%);
+            }
+        }
+
+        .nav {
+            z-index: 1030;
+        }
+    </style>
+</head>
+
+<body style="padding-top: 80px;">
+
+    <!-- nav區域 -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./BCS5-img/T7L黑色LOGO.svg" alt="logo" height="60px">
+                <!-- Navbar -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto ">
+                    <li class="nav-item ">
+                        <a class="nav-link active" aria-current="page" href="./BCS5-框架-購物頁面.html">首頁</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./BCS5-框架-關於我們.html">關於我們</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./BCS5-框架-產品介紹.html">產品介紹</a>
+                    </li>
+                    <!-- icon 並排 -->
+                    <li class="nav-item d-flex justify-content-center gap-1">
+                        <a class="nav-link p-2" href="./BCS5-框架-購物車-第一頁.html"><i class="bi bi-cart2"></i></a>
+
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle p-2" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="bi bi-person-circle"></i>
+                            </a>
+                            <ul
+                                class="dropdown-menu dropdown-menu-sm-start dropdown-menu-lg-end position-absolute z-index-100">
+                                <li><a class="dropdown-item" href="./BCS5-框架-登入頁面.html">登入</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 橫幅 -->
+    <div id="carouselExampleCaptions" class="carousel slide mb-5">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active ">
+                <img src="./BCS5-img/1.png" class="d-block w-100" alt="..." style="max-height: 800px;">
+                <div class="carousel-caption d-none d-md-block text-start">
+                    <h5 class="fs-1">First slide label</h5>
+                    <p class="fs-5">Some representative placeholder content for the first slide.</p>
+                    <button type="button" class="btn btn-light btn-lg d-block me-auto">Large button</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./BCS5-img/2.png" class="d-block w-100" alt="..." style="max-height: 800px;">
+                <div class="carousel-caption d-none d-md-block text-center">
+                    <h5 class="fs-1">Second slide label</h5>
+                    <p class="fs-5">Some representative placeholder content for the second slide.</p>
+                    <button type="button" class="btn btn-light btn-lg">Large button</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./BCS5-img/3.png" class="d-block w-100" alt="..." style="max-height: 800px;">
+                <div class="carousel-caption d-none d-md-block text-end">
+                    <h5 class="fs-1">Third slide label</h5>
+                    <p class="fs-5">Some representative placeholder content for the third slide.</p>
+                    <button type="button" class="btn btn-light btn-lg">Large button</button>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="container px-5">
+        <!-- 文字區域1 -->
+        <div class="row py-5 text-center">
+            <p class="h2 pb-3">Raw Denim Heirloom Man Braid</p>
+            <p class="lead">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy.
+                <br> Gastropub indxgo juice poutine, ramps microdosing banh mi pug.
+            </p>
+            <div class="custom-underline mx-auto"></div>
+        </div>
+        <!-- 三欄 -->
+        <div class="row">
+            <div class="col-lg-4 text-center py-4">
+
+                <img src="./BCS5-img/首頁圖示/首頁文字區小icon1.png" alt="" class="pb-4">
+                <p class="h2">Shooting Stars</p>
+                <p class="lead">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub
+                    indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard.
+                </p>
+                <a href="#" class="text-decoration-none">Learn More➝</a>
+            </div>
+            <div class="col-lg-4 text-center py-4">
+
+                <img src="./BCS5-img/首頁圖示/首頁文字區小icon2.png" alt="" class="pb-4">
+                <p class="h2">The Catalyzer</p>
+                <p class="lead">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub
+                    indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard.
+
+                </p>
+                <a href="#" class="text-decoration-none">Learn More➝</a>
+            </div>
+            <div class="col-lg-4 text-center py-4">
+
+                <img src="./BCS5-img/首頁圖示/首頁文字區小icon3.png" alt="" class="pb-4">
+                <p class="h2">Neptune</p>
+                <p class="lead">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub
+                    indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard.
+                </p>
+                <a href="#" class="text-decoration-none">Learn More➝</a>
+            </div>
+        </div>
+        <div class="row-2 d-flex justify-content-center py-3"><button type="button" class="btn btn-primary btn-lg">Large
+                button</button></div>
+
+        <!-- 水平線 -->
+        <hr class="my-5">
+
+        <!-- 文字區域2 -->
+        <div class="row py-4">
+            <div class="col-lg-3">
+                <p class="h2 pb-3">Master Cleanse Reliac Heirloom.</p>
+            </div>
+            <div class="col-lg-9">
+                <p class="lead">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile
+                    poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies
+                    heirloom.
+
+                </p>
+            </div>
+
+        </div>
+
+        <!-- 6張圖片 -->
+        <div class="container text-center mt-5 pb-4">
+            <div class="row">
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-6 p-1 ">
+                            <img class="w-100" src="https://dummyimage.com/500x300" alt="">
+                        </div>
+                        <div class="col-6 p-1">
+                            <img class="w-100" src="https://dummyimage.com/500x300" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 p-1">
+                            <img class="w-100" src="https://dummyimage.com/600x360" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-12 p-1">
+                            <img class="w-100" src="https://dummyimage.com/600x360" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 p-1 ">
+                            <img class="w-100" src="https://dummyimage.com/500x300" alt="">
+                        </div>
+                        <div class="col-6 p-1">
+                            <img class="w-100" src="https://dummyimage.com/500x300" alt="">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 文字區域3 -->
+        <div class="row py-5 text-center">
+            <p class="h2 pb-3">Pricing</p>
+            <p class="lead">Banh mi cornhole echo park skateboard authentic crucifix neutra tilde lyft biodiesel artisan
+                direct trade mumblecore <br>3 wolf moon twee
+            </p>
+            <div class="custom-underline mx-auto"></div>
+        </div>
+
+        <!-- 表格 -->
+        <div class="row  d-flex  align-items-center flex-column pb-5">
+            <div class="col-10">
+                <table class="table">
+                    <thead>
+                        <tr class="table-secondary">
+                            <th scope="col">Plan</th>
+                            <th scope="col">Speed</th>
+                            <th scope="col">Storage</th>
+
+                            <th colspan="2">Price</td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Start</td>
+                            <td>5 Mb/s</td>
+                            <td>15 GB</td>
+                            <td>Free</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Pro</td>
+                            <td>25 Mb/s</td>
+                            <td>25 GB</td>
+                            <td>$24</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+
+                                    </label>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Business</td>
+                            <td>36 Mb/s</td>
+                            <td>40 GB</td>
+                            <td>$50</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault3" checked>
+                                    <label class="form-check-label" for="flexRadioDefault3">
+
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Exclusive</td>
+                            <td>48 Mb/s</td>
+                            <td>120 GB</td>
+                            <td>$72</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault4" checked>
+                                    <label class="form-check-label" for="flexRadioDefault4">
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <!-- 按鈕 -->
+            <div class="row d-flex d-flex justify-content-center ">
+                <div class="col-10 d-flex justify-content-between">
+                    <div class="col-lg-3"><a href="#" class="text-decoration-none">Learn
+                            More➝</a></div>
+
+                    <div class="col-lg-3 d-flex justify-content-end">
+                        <a href="" class="btn btn-primary">下一步</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 文字區域4 -->
+        <div class="row py-3">
+            <div class="col-lg-5 py-3">
+                <p class="h2 pb-3">Pitchfork Kickstarter Taxidermy</p>
+                <div class="custom-underline "></div>
+            </div>
+            <div class="col-lg-7 py-3">
+                <p class="lead">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile
+                    poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies
+                    heirloom prism food truck ugh squid celiac humblebrag.
+
+                </p>
+            </div>
+        </div>
+
+        <!-- 四張卡片 -->
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-10 col-sm-12 col-lg-3 mx-auto mb-4">
+                    <div class="card p-3 h-100">
+                        <img class="w-100" src="https://dummyimage.com/720X400" alt="">
+                        <p class="text-primary">SUBTITLE</p>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-10 col-sm-12 col-lg-3 mx-auto mb-4">
+                    <div class="card p-3 h-100">
+                        <img class="w-100" src="https://dummyimage.com/720X400" alt="">
+                        <p class="text-primary">SUBTITLE</p>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-10 col-sm-12 col-lg-3 mx-auto mb-4">
+                    <div class="card p-3 h-100">
+                        <img class="w-100" src="https://dummyimage.com/720X400" alt="">
+                        <p class="text-primary">SUBTITLE</p>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-10 col-sm-12 col-lg-3 mx-auto mb-4">
+                    <div class="card p-3 h-100">
+                        <img class="w-100" src="https://dummyimage.com/720X400" alt="">
+                        <p class="text-primary">SUBTITLE</p>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 三欄 -->
+        <div class="col py-5  d-flex flex-column">
+            <div class="row py-4  justify-content-center ">
+                <div class="col-lg-2 d-flex align-items-center justify-content-center"><img
+                        src="./BCS5-img/首頁圖示/首頁文字區小icon1.png" alt="" class="pb-4"></div>
+                <div class="col-lg-8">
+                    <p class="h2">Shooting Stars</p>
+                    <p class="lead">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub
+                        indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard.
+                    </p>
+                    <a href="#" class="text-decoration-none">Learn More➝</a>
+                </div>
+            </div>
+            <div class="row py-4 border-top border-bottom  justify-content-center ">
+
+                <div class="col-lg-8">
+                    <p class="h2">Shooting Stars</p>
+                    <p class="lead">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub
+                        indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard.
+                    </p>
+                    <a href="#" class="text-decoration-none">Learn More➝</a>
+                </div>
+                <div class="col-lg-2 d-flex align-items-center justify-content-center"><img
+                        src="./BCS5-img/首頁圖示/首頁文字區小icon2.png" alt="" class="pb-4"></div>
+            </div>
+            <div class="row py-4  justify-content-center ">
+                <div class="col-lg-2 d-flex align-items-center justify-content-center"><img
+                        src="./BCS5-img/首頁圖示/首頁文字區小icon3.png" alt="" class="pb-4"></div>
+                <div class="col-lg-8">
+                    <p class="h2">Shooting Stars</p>
+                    <p class="lead">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub
+                        indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard.
+                    </p>
+                    <a href="#" class="text-decoration-none">Learn More➝</a>
+                </div>
+            </div>
+        </div>
+        <div class="row-2 d-flex justify-content-center pb-5"><button type="button" class="btn btn-primary btn-lg">Large
+                button</button></div>
+
+
+        <!-- 欄位 -->
+        <div class="row py-5 align-items-stretch">
+            <div class="col-lg-5 d-flex align-items-center">
+                <img class="w-100 h-100 object-fit-cover" src="https://dummyimage.com/400X400" alt="">
+            </div>
+
+            <div class="col-lg-7 d-flex flex-column justify-content-center">
+                <div class="row">
+                    <p class="h5">BRAND NAME</p>
+                </div>
+                <div class="row">
+                    <p class="h1">The Catcher in the Rye</p>
+                </div>
+                <div class="row  pb-3">
+                    <div class="col-4 col-lg-3 col-xxl-2 pe-2 ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-star-fill text-warning" viewBox="0 0 16 16">
+                            <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-star-fill text-warning" viewBox="0 0 16 16">
+                            <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-star-fill text-warning" viewBox="0 0 16 16">
+                            <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-star-fill text-warning" viewBox="0 0 16 16">
+                            <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-star text-warning" viewBox="0 0 16 16">
+                            <path
+                                d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z" />
+                        </svg>
+                    </div>
+                    <div class="col-4 col-lg-3 col-xxl-2 ">
+                        <p class="h5">
+                            4 Reviews</p>
+                    </div>
+                    <div class="col-4 col-lg-3 col-xxl-2 ">
+                        <p style="min-width: 86px">
+                            <a href="#"><img src="./BCS5-img/fb.svg" alt=""></a>
+                            <a href="#"><img src="./BCS5-img/X.svg" alt=""></a>
+                            <a href="#"><img src="./BCS5-img/ig.svg" alt=""></a>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row pb-3">
+                    <p class="h5">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia
+                        microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday
+                        carry
+                        +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts
+                        keytar banjo tattooed umami cardigan.
+                    </p>
+                </div>
+                <div class="row py-3 border-bottom">
+
+                    <div class="col">
+                        <div class="d-flex align-items-center">
+                            <label class="me-3 h5 fw-medium mb-0">Color</label>
+                            <div class="d-flex align-items-center">
+                                <input type="radio" class="btn-check" name="colorOptions" id="colorRed"
+                                    autocomplete="off">
+                                <label class="color-btn bg-danger me-2" for="colorRed"></label>
+
+                                <input type="radio" class="btn-check" name="colorOptions" id="colorBlue"
+                                    autocomplete="off">
+                                <label class="color-btn bg-primary me-2" for="colorBlue"></label>
+
+                                <input type="radio" class="btn-check" name="colorOptions" id="colorGreen"
+                                    autocomplete="off">
+                                <label class="color-btn bg-success me-5" for="colorGreen"></label>
+                            </div>
+                            <label class="me-3 h5 fw-medium mb-0">Size</label>
+                            <select class="form-select w-auto" aria-label="Default select example">
+                                <option selected>S-L</option>
+                                <option value="1">S</option>
+                                <option value="2">M</option>
+                                <option value="3">L</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row py-5 d-flex justify-content-between">
+                    <div class="col h3">
+                        <p>$58.00</p>
+                    </div>
+                    <div class="col d-flex justify-content-end align-items-center"><button type="button"
+                            class="btn btn-primary btn-lg me-3">Large
+                            button</button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
+                            class="bi bi-heart-fill text-danger" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- 四張卡片 -->
+        <div class="container my-5 ">
+            <div class="row justify-content-between">
+                <div class="col-10 col-sm-12 col-lg-3 mx-auto mb-4">
+                    <img class="w-100" src="https://dummyimage.com/420X260" alt="">
+                    <div class="card-body">
+                        <p class="card-text">CATEGORY</p>
+                        <h5 class="card-title">The Catalyzer</h5>
+                        <p class="card-text">$16.00</p>
+                    </div>
+                </div>
+                <div class="col-10 col-sm-12 col-lg-3 mx-auto mb-4">
+                    <img class="w-100" src="https://dummyimage.com/421X261" alt="">
+                    <div class="card-body">
+                        <p class="card-text">CATEGORY</p>
+                        <h5 class="card-title">The Catalyzer</h5>
+                        <p class="card-text">$16.00</p>
+                    </div>
+                </div>
+                <div class="col-10 col-sm-12 col-lg-3 mx-auto mb-4">
+                    <img class="w-100" src="https://dummyimage.com/422X262" alt="">
+                    <div class="card-body">
+                        <p class="card-text">CATEGORY</p>
+                        <h5 class="card-title">The Catalyzer</h5>
+                        <p class="card-text">$16.00</p>
+                    </div>
+                </div>
+                <div class="col-10 col-sm-12 col-lg-3 mx-auto mb-4">
+                    <img class="w-100" src="https://dummyimage.com/423X263" alt="">
+                    <div class="card-body">
+                        <p class="card-text">CATEGORY</p>
+                        <h5 class="card-title">The Catalyzer</h5>
+                        <p class="card-text">$16.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-between">
+                <div class="col-10 col-sm-12 col-lg-3 mx-auto mb-4">
+                    <img class="w-100" src="https://dummyimage.com/424X264" alt="">
+                    <div class="card-body">
+                        <p class="card-text">CATEGORY</p>
+                        <h5 class="card-title">The Catalyzer</h5>
+                        <p class="card-text">$16.00</p>
+                    </div>
+                </div>
+                <div class="col-10 col-sm-12 col-lg-3 mx-auto mb-4">
+                    <img class="w-100" src="https://dummyimage.com/425X265" alt="">
+                    <div class="card-body">
+                        <p class="card-text">CATEGORY</p>
+                        <h5 class="card-title">The Catalyzer</h5>
+                        <p class="card-text">$16.00</p>
+                    </div>
+                </div>
+                <div class="col-10 col-sm-12 col-lg-3 mx-auto mb-4">
+                    <img class="w-100" src="https://dummyimage.com/426X266" alt="">
+                    <div class="card-body">
+                        <p class="card-text">CATEGORY</p>
+                        <h5 class="card-title">The Catalyzer</h5>
+                        <p class="card-text">$16.00</p>
+                    </div>
+                </div>
+                <div class="col-10 col-sm-12 col-lg-3 mx-auto mb-4">
+                    <img class="w-100" src="https://dummyimage.com/427X267" alt="">
+                    <div class="card-body">
+                        <p class="card-text">CATEGORY</p>
+                        <h5 class="card-title">The Catalyzer</h5>
+                        <p class="card-text">$16.00</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+    <!-- 地圖 -->
+    <div class="position-relative" style="height: 800px;">
+
+        <!-- Google 地圖 -->
+        <iframe class="w-100 h-100"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.372532484937!2d120.67275107534745!3d24.123551978417662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693cfcecffe9d9%3A0xe28afadc0dad203a!2z5ZyL56uL5Lit6IiI5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1744349680819!5m2!1szh-TW!2stw"
+            style="border:0; filter: grayscale(1) contrast(1.2) opacity(0.7);" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <!-- 表單 -->
+        <div class="my-float-box position-absolute top-50 start-50 w-100 mx-3 bg-white p-4 rounded shadow"
+            style="max-width: 400px;">
+
+            <form action="">
+                <p>Feedback<br>
+                    Post-ironic portland shabby chic echo park, banjo fashion axe</p>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                        placeholder="name@example.com" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-3">Send</button>
+                <p class="py-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- footer -->
+
+    <!-- 底部資訊 -->
+    <hr>
+    <div class="container text-center py-5">
+        <div class="row h-100">
+            <!-- Logo 與標語 -->
+            <div class="col-md d-flex flex-column justify-content-center mb-4">
+                <div class="col mb-2">
+                    <img src="./BCS5-img/T7L黑色LOGO.svg" alt="logo" height="50px">
+                </div>
+                <div class="col">
+                    <p class="mb-0">引你入星夜，神遊草木間</p>
+                </div>
+            </div>
+
+            <!-- 顧客服務 -->
+            <div class="col-md mb-4">
+                <h6 class="fw-bold mb-2">顧客服務</h6>
+                <a href="#"
+                    class="d-block link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">常見問題</a>
+                <a href="#"
+                    class="d-block link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">聯絡我們</a>
+                <a href="#"
+                    class="d-block link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">退貨政策</a>
+                <a href="#"
+                    class="d-block link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">配送服務</a>
+            </div>
+
+            <!-- 會員中心 -->
+            <div class="col-md mb-4">
+                <h6 class="fw-bold mb-2">會員中心</h6>
+                <a href="#"
+                    class="d-block link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">會員登入</a>
+                <a href="#"
+                    class="d-block link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">訂單查詢</a>
+                <a href="#"
+                    class="d-block link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">購物須知</a>
+                <a href="#"
+                    class="d-block link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">追蹤清單</a>
+            </div>
+
+            <!-- 關於我們 -->
+            <div class="col-md mb-4">
+                <h6 class="fw-bold mb-2">關於我們</h6>
+                <a href="#"
+                    class="d-block link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">品牌故事</a>
+                <a href="#"
+                    class="d-block link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">最新消息</a>
+                <a href="#"
+                    class="d-block link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">合作提案</a>
+            </div>
+
+            <!-- 法規與條款 -->
+            <div class="col-md mb-4">
+                <h6 class="fw-bold mb-2">法規與條款</h6>
+                <a href="#"
+                    class="d-block link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">隱私權政策</a>
+                <a href="#"
+                    class="d-block link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">網站使用條款</a>
+                <a href="#"
+                    class="d-block link-secondary link-underline-opacity-0 link-underline-opacity-75-hover">Cookies政策</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container py-3">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <!-- 版權與連結文字 -->
+            <p class="text-center text-md-start text-secondary small mb-2 mb-md-0">
+                © 2025 T7L ·
+                <a href="#" class="link-secondary text-decoration-none">隱私權政策</a> ·
+                <a href="#" class="link-secondary text-decoration-none">使用條款</a>
+            </p>
+
+            <!-- 社群 icon -->
+            <div class="d-flex gap-2">
+                <a href="#"><img src="./BCS5-img/fb.svg" alt="Facebook" height="24"></a>
+                <a href="#"><img src="./BCS5-img/X.svg" alt="X/Twitter" height="24"></a>
+                <a href="#"><img src="./BCS5-img/ig.svg" alt="Instagram" height="24"></a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 引進程式 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>
