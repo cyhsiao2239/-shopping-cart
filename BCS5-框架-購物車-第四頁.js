@@ -44,4 +44,19 @@ window.onload = function () {
         console.warn("cartItems 不存在或不是陣列：", selectedProducts);
     }
     // console.log("selectedProducts:", localStorage.getItem('cartItems'));
+
+    // 讀取並顯示使用者寄送資訊
+    const customerInfoJSON = localStorage.getItem('customerInfo');
+    if (customerInfoJSON) {
+        const customerInfo = JSON.parse(customerInfoJSON);
+
+        document.getElementById('customer-name').textContent = customerInfo.name;
+        document.getElementById('customer-phone').textContent = customerInfo.phone;
+        document.getElementById('customer-email').textContent = customerInfo.email;
+        document.getElementById('customer-city').textContent = customerInfo.city;
+        document.getElementById('customer-zipcode').textContent = customerInfo.zipcode;
+        document.getElementById('customer-address').textContent = customerInfo.address;
+    } else {
+        console.warn("找不到 customerInfo");
+    }
 };
